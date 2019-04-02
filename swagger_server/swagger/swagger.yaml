@@ -1,0 +1,89 @@
+---
+swagger: "2.0"
+info:
+  description: "sensor system"
+  version: "1"
+  title: "sensor"
+host: "sensor.api.ink"
+basePath: "/v1"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /login_cd:
+    get:
+      tags:
+      - "User"
+      summary: "User Login"
+      description: "System User Login"
+      operationId: "login_get_jzh"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "name"
+        in: "query"
+        description: "data"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "return status"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        500:
+          description: "return status"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
+  /login_jzh:
+    get:
+      tags:
+      - "User"
+      summary: "User Login"
+      description: "System User Login"
+      operationId: "login_get_cd"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "name"
+        in: "query"
+        description: "data"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "return status"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        500:
+          description: "return status"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
+definitions:
+  inline_response_200:
+    properties:
+      role:
+        type: "string"
+        description: "system return code"
+      url:
+        type: "string"
+        description: "system return code"
+      code:
+        type: "integer"
+        description: "system return code"
+      msg:
+        type: "string"
+        description: "system return news"
+    example:
+      msg: "msg"
+      role: "role"
+      code: 0
+      url: "url"
