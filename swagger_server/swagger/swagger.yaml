@@ -82,8 +82,4 @@ definitions:
       msg:
         type: "string"
         description: "system return news"
-    example:
-      msg: "msg"
-      role: "role"
-      code: 0
-      url: "url"
+
